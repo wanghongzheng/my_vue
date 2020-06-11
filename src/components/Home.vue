@@ -1,7 +1,9 @@
 <template>
-    <div id="homeComponent">
-        <h1>欢迎，使用</h1>
-        <a> {{message}}</a>
+    <div>
+        <router-link  to="/home/phone" class="routerLink">手机</router-link>
+        <router-link to="/home/tablet" class="routerLink">平板</router-link>
+        <router-link to="/home/computer" class="routerLink">电脑</router-link>
+        <router-view></router-view>
     </div>
 </template>
 <script>
@@ -13,3 +15,8 @@ export default {
     }
 }
 </script>
+<style scoped>
+.routerLink{
+	margin:10px;
+}
+</style>

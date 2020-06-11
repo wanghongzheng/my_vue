@@ -4,6 +4,8 @@
 	<div>
 		<router-link to="/home" class="routerLink">Go to Home</router-link>
 		<router-link to="/about" class="routerLink">Go to About</router-link>
+		<router-link :to="{ name: 'user', params: { id: 1234 }}">用户1234</router-link> 
+		<router-link to="/user/5678" class="routerLink">用户5678</router-link>
 		<router-view></router-view>
 	</div>
   </div>
@@ -38,4 +40,5 @@ export default {
 .routerLink{
 	margin:10px;
 }
+a a.router-link-active {color: red;}
 </style>
