@@ -5,8 +5,8 @@
     </div>
     <div v-else>
         <div>
-            <button @click="inscreament">+1</button>
-            <button @click="decreament">-1</button>
+            <button @click="increment">+1</button>
+            <button @click="decrement">-1</button>
         </div>
         <div>
             <input type="text" v-model="incrementValue" class="input">
@@ -17,28 +17,31 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
-export default {
+export default{
     data(){
         return {
-            incrementValue: 0
+              incrementValue: 0
         }
     },
     computed: {
         show: function() {
             return this.$store.state.waiting;
+        },
+        countAnother: function(){
+            return this.$store.getters.countAnother;
         }
     },
     methods:{
-        ...mapActions(["inscreament","decreament"]),
+        ...mapActions(["increment","decrement"]),
         incrementWithValue(){
-            this.$store.dispatch("incrementWithValue",this.incrementValue);
+            this.$store.dispatch("incrementWithValue",{value:this.incrementValue,anotherValue:this.countAnother});
         }
     }
 }
 </script>
 <style scoped>
     div {
-        margin: 10px;
+                 margin: 10px;
     }
     button {
         width: 100px;

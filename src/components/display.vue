@@ -1,22 +1,23 @@
 <template>
     <div>
         <h3>Count is {{count}}</h3>
-        <p>组件自己的内部计算属性{{loaclComputed}}</p>
+        <h3>AnoterIncrement is {{countAnother}}</h3>
     </div>
 </template>
-<script>
-import {mapState} from "vuex";
 
-export default {
-      computed: {
-        loaclComputed() {
-            return this.count + 10;
+<script>
+    import {mapState} from "vuex";
+    export default {
+        data(){
+          return{}
         },
-        ...mapState({
-            count:'count'
-        })
+        computed: {
+            ...mapState(["count"]),
+            countAnother: function () {  // 获取state
+                return this.$store.getters.countAnother;
+            }
+        }    
     }
-}
 </script>
 <style scoped>
 h3{
